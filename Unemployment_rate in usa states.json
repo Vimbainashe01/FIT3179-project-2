@@ -1,0 +1,40 @@
+{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"title": "UNEMPLOYMENT RATE IN USA STATES IN 2023",
+"width": 800,
+"height": 300,
+
+"data": {
+"url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/js/states-10m.topojson",
+"format": {"type": "topojson", "feature": "states"}
+},
+"transform": [
+{
+"lookup": "properties.name",
+"from": {
+"data": {
+"url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/data/Unemployment%20Rate%20in%20USA%20states%202023.csv"
+},
+"key": "state", "fields": ["state", "2023_Population","Unemployment_rate_2023","Rate_per_100000"]
+}
+}
+
+],
+"projection": {"type": "equalEarth"},
+"mark": {"type": "geoshape"},
+"encoding": {
+"color": {
+"field": "Rate_per_100000",
+"type": "quantitative",
+"scale": {
+"type": "threshold",
+"domain": [0.04, 0.08, 0.12, 0.16],
+"range": ["#FFCC00", "#FF9900", "#FF6600", "#FF3300",  "#CC0000" ]
+}
+},
+"tooltip": [
+{"field": "properties.name", "type": "nominal", "title": "state"},
+{"field": "Rate_per_100000", "type": "quantitative", "format": ".2f", "title": "Unemployment rate per100000"}
+]
+}
+}

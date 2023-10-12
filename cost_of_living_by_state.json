@@ -1,0 +1,27 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { "url" : "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/data/cost_of_living_by_state.csv"},
+    "transform": [
+      {"fold": ["Grocery", "Health", "Housing", "Transportation", "Utility"], "as": ["costCategory", "value"]}
+    ],
+    "width": 600,
+    "height": 800,
+    "mark": "rect",
+    "encoding": {
+      "y": {"field": "state", "type": "nominal", "title": "State"},
+      "x": {"field": "costCategory", "type": "nominal", "title": "Cost Category"},
+      "color": {"field": "value", "type": "quantitative", "title": "cost rate",
+      "scale": {
+        "type": "threshold",
+        "domain": [100,150,200,250,300],
+        "range":["#FFCC00", "#FF9900", "#FF6600", "#FF3300", "#FF0000", "#CC0000"]
+        }},
+       "tooltip":[ {"field": "state", "type": "nominal"},
+       {"field": "costCategory", "type": "nominal", "title": "Cost Category"},
+      {"field": "value", "type": "quantitative", "title" : "Cost"}]
+    }
+ 
+  }
+  
+  
+  
