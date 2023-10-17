@@ -1,4 +1,4 @@
-var vg_1 = "jobs with the highest vacancies.json";
+var vg_1 = "Jobs with the highest vacancies.json";
 var vg_2 = "Unemployment_rate in usa states.json";
 var vg_3 = "cost_of_living_by_state.json";
 var vg_4 = "Season Map.json";
