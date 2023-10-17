@@ -1,0 +1,26 @@
+﻿state,Grocery,Health,Housing,Transportation,Utility,Region,Region Value
+Alabama,96.4,86.9,70.4,92,103.6,Southeast,3
+Alaska,127.4,149.8,118.1,121.9,148.1,West,5
+Arizona,101.8,93.5,125.3,99.2,94.3,Southwest,4
+Arkansas,95.4,87.2,76.3,92.2,91.8,Southeast,3
+California,112.3,106.4,186.5,124.1,124.8,West,5
+Colorado,100.6,102,116.1,107.4,90.9,West,5
+Connecticut,99.8,109.7,122.7,102.6,122.3,Northeast,2
+Delaware,103,104.3,99.7,109.5,97.8,Northeast,2
+District of Columbia,106.9,104.7,241.8,107.9,110.2,Northeast,2
+Florida,100.1,96.3,110.5,99.8,96.7,Southeast,3
+Georgia,98.9,101.4,78.5,94.5,84.4,Southeast,3
+Hawaii,125.6,118.4,309.7,140.3,141.1,West,5
+Idaho,103.7,101.2,113.8,109.7,84.6,West,5
+Illinois,97.5,95.4,78.3,102.4,90.9,Midwest,1
+Indiana,98,98.9,77,95.7,105.4,Midwest,1
+Iowa,96.8,99.7,72.4,100.6,94.5,Midwest,1
+Kansas,96.8,97.1,69.4,88.3,107.5,Midwest,1
+Kentucky,101.2,81.8,72.5,97.7,102.9,Southeast,3
+Louisiana,95.1,97.9,84.7,97.2,85.3,Southeast,3
+Maine,101.2,96.2,118.9,112.8,108,Northeast,2
+Maryland,108.5,96.2,152.2,100.2,109.2,Northeast,2
+Massachusetts,105,112.6,219.5,127.5,126.1,Northeast,2
+Michigan,97.4,94,80.9,98.6,99.6,Midwest,1
+Minnesota,97.2,111.5,82.3,99,91.5,Midwest,1
+Mississippi,97.1,97.6,68.6,88.6,86.1,Southeast,3
