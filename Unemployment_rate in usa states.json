@@ -1,40 +1,83 @@
 {
-"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-"title": "UNEMPLOYMENT RATE IN USA STATES IN 2023",
-"width": 800,
-"height": 300,
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+   
+    "width": 400,
+    "height": 250,
+    "background" : "honeydew",
 
-"data": {
-"url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/js/states-10m.topojson",
-"format": {"type": "topojson", "feature": "states"}
-},
-"transform": [
-{
-"lookup": "properties.name",
-"from": {
-"data": {
-"url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/data/Unemployment%20Rate%20in%20USA%20states%202023.csv"
-},
-"key": "state", "fields": ["state", "2023_Population","Unemployment_rate_2023","Rate_per_100000"]
-}
-}
-
-],
-"projection": {"type": "equalEarth"},
-"mark": {"type": "geoshape"},
-"encoding": {
-"color": {
-"field": "Rate_per_100000",
-"type": "quantitative",
-"scale": {
-"type": "threshold",
-"domain": [0.04, 0.08, 0.12, 0.16],
-"range": ["#FFCC00", "#FF9900", "#FF6600", "#FF3300",  "#CC0000" ]
-}
-},
-"tooltip": [
-{"field": "properties.name", "type": "nominal", "title": "state"},
-{"field": "Rate_per_100000", "type": "quantitative", "format": ".2f", "title": "Unemployment rate per100000"}
-]
-}
+    "data":
+    {
+        "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/js/states-10m.topojson",
+        "format": {"type": "topojson", "feature": "states"}
+    },
+    "projection": {"type": "albersUsa"},
+    "layer": [
+        {
+          "transform": [
+            {
+              "calculate": "'Data is not available in ' + datum.properties.name",
+              "as": "note"
+            }
+          ],
+          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+          "encoding": {"tooltip": {"field": "note"}}
+        },
+        
+        {
+          "transform": [
+            {
+              "lookup": "properties.name",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/Unemployment%20Rate%20in%20USA%20states%202023_final_long%2Clat.csv"
+                },
+                "key": "state", "fields": ["state", "2023_Population","Unemployment_rate_2023","Rate_per_100000"]
+            
+              }
+            }
+           
+          ],
+          "mark": {"type": "geoshape"},
+          "encoding": {
+          "color": {
+          "field": "Rate_per_100000",
+          "legend" : {"title" : "Rate Per 100K","labelFont": "'Fira Sans Condensed', sans-serif",
+          "titleFont": "'Fira Sans Condensed', sans-serif", "labelFontSize": 10},
+          "type": "quantitative"
+          },
+          "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "state"},
+          {"field": "Rate_per_100000", "type": "quantitative", "format": ".2f", "title": "Unemployment rate /100K"}
+          ]
+          }
+        },
+        {
+          "mark": "text",
+          "encoding": {
+            "longitude": {"field": "Longitude"},
+            "latitude": {"field": "Latitude"},
+            "text": {"field": "properties.name"},
+            "opacity": {
+              "condition": {
+                "test": "datum['properties.name'] == 'California' || datum['properties.name'] == 'Texas' || datum['properties.name'] == 'Hawaii' || datum['properties.name'] == 'Wyoming' ||  datum['properties.name'] == 'Alaska' ||  datum['properties.name'] == 'Florida'||  datum['properties.name'] == 'North Dakota'||  datum['properties.name'] == 'New Mexico'||  datum['properties.name'] == 'New York'",
+                "value": 1
+              },
+              "value": 0
+            }
+          },
+          "transform": [
+            {
+              "lookup": "properties.name",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/Unemployment%20Rate%20in%20USA%20states%202023_final_long%2Clat.csv"
+                },
+                "key": "state",
+                "fields": ["Longitude", "Latitude"]
+              }
+            }
+          ]
+        }
+      ],
+      "config": {"view": {"stroke": "transparent"  }}
 }

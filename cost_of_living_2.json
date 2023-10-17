@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": { "url" : "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/1st_half.csv"},
+    "data": { "url" : "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/2nd_half.csv"},
     "transform": [
       {"fold": ["Grocery", "Health", "Housing", "Transportation", "Utility"], "as": ["costCategory", "value"]}
     ],
@@ -9,19 +9,18 @@
     "width" : 200,
     "mark": "rect",
     "encoding": {
-      "y": {"field": "state", "type": "nominal", "title": "State"},
-      "x": {"field": "costCategory", "type": "nominal", "title": null},
-      "color": {"field": "value", "type": "quantitative", "title": "living cost rate", "legend":null,
+      "y": {"field": "state", "type": "nominal", "title": null, "axis": {"orient": "right"}},
+      "x": {"field": "costCategory", "type": "nominal", "title": "Cost Category"},
+      "color": {"field": "value", "type": "quantitative", "title": "cost rate",
       "scale": {
         "type": "threshold",
         "domain": [100,150,200,250,300]
+
         }},
+        
        "tooltip":[ {"field": "state", "type": "nominal"},
        {"field": "costCategory", "type": "nominal", "title": "Cost Category"},
       {"field": "value", "type": "quantitative", "title" : "Cost"}]
     }
  
   }
-  
-  
-  

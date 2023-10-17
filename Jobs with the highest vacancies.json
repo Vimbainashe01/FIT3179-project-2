@@ -1,15 +1,16 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "FIELDS AND JOBS WITH THE HIGHEST VACANCIES",
+    
     "description": "Point chart with labels and interactive highlight on hover.",
+    "background" : "honeydew",
+    "width" : 350,
+    "height" : 200,
     "data": {
       "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/data/Top%2030%20Jobs%20With%20Highest%20Vacancies.csv"
     },
-    "width": 600,
-    "height": 400,
     
     "encoding": {
-      "x": {"field": "Advertised job vacancies", "type": "quantitative"},
+      "x": {"field": "Advertised job vacancies", "type": "quantitative", "title":"Advertised job vacancies"},
       "y": {"field": "Average advertised salary", "type": "quantitative"},
       "color": {
         "condition": {
@@ -19,6 +20,8 @@
         },
         "value": "grey"
       },
+      
+
       "opacity": {
         "condition": {
           "param": "hover",
@@ -37,7 +40,7 @@
       "description": "transparent layer to make it easier to trigger selection",
       "params": [{
         "name": "hover",
-        "value": [{"Field": "Medical"}],
+        
         "select": {
           "type": "point",
           "fields": ["Field"],
@@ -49,12 +52,38 @@
        "mark": {"type": "point", "size": 200}
     }, {
       "encoding": {
-       "x": {"field": "Advertised job vacancies", "type": "quantitative"},
-      "y": {"field": "Average advertised salary", "type": "quantitative"}
+        "x": {
+          "field": "Advertised job vacancies", 
+          "type": "quantitative",
+          
+          "axis": {
+            "gridColor": "black"
+          }},
+          "y": {
+            "field": "Average advertised salary", 
+            "type": "quantitative",
+            "axis": {
+              "gridColor": "black"
+            }
+          }
       },
       "layer": []
   
-    }]
+    }, {
+      "transform": [
+       
+        {
+          "filter": " (datum['Job Title'] == 'Nurse') || (datum['Job Title'] == 'Delivery Driver') || (datum['Job Title'] == 'Engineer')  "
+        }
+      ],
+      "mark": "text",
+      "encoding": {
+        "x": {"field": "Advertised job vacancies", "type": "quantitative"},
+        "y": {"field": "Average advertised salary", "type": "quantitative"},
+        "text": {"field": "Job Title", "type": "nominal"}
+      }
+    }
+  ]
   
     
   }

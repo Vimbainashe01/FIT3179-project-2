@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 250,
+  "background": "honeydew",
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179/main/FIT3179_PROJECT2/js/states-10m.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "states"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/Temperature%20Changes%20USA%20STATES_long%2Clat.csv"
+        },
+        "key": "State",
+        "fields": ["Spring(Avg ° C)", "Summer(Avg ° C)", "Fall(Avg ° C)", "Winter(Avg ° C)"]
+      }
+    },
+    {
+      "fold": ["Spring(Avg ° C)", "Summer(Avg ° C)", "Fall(Avg ° C)", "Winter(Avg ° C)"],
+      "as": ["Season", "Temperature"]
+    },
+    {
+      "filter": "datum.Season === season"
+    }
+  ],
+  "params": [
+    {
+      "name": "season",
+      "value": "Winter(Avg ° C)",
+      "bind": {
+        "input": "select",
+        "options": ["Spring(Avg ° C)", "Summer(Avg ° C)", "Fall(Avg ° C)", "Winter(Avg ° C)"],
+        "name": "Choose Season"
+      }
+    }
+  ],
+  "projection": {
+    "type": "albersUsa"
+  },
+  "layer": [
+    {
+      "mark": "geoshape",
+      "encoding": {
+        "color": {
+          "field": "Temperature",
+          "type": "quantitative",
+          "legend": {
+            "title": "Average Temperature (°C)"
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "Temperature", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "longitude": {"field": "Longitude"},
+        "latitude": {"field": "Latitude"},
+        "text": {"field": "properties.name"},
+        "opacity": {
+          "condition": {
+            "test": "datum['properties.name'] == 'California' || datum['properties.name'] == 'Texas' || datum['properties.name'] == 'Hawaii' || datum['properties.name'] == 'Louisiana' ||  datum['properties.name'] == 'Alaska' ||  datum['properties.name'] == 'Florida' ||  datum['properties.name'] == 'North Dekota'||  datum['properties.name'] == 'Wiscon'||  datum['properties.name'] == 'Minnesota'||  datum['properties.name'] == 'Kansas'",
+            "value": 1
+          },
+          "value": 0
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/Vimbainashe01/FIT3179-project-2/main/Temperature%20Changes%20USA%20STATES_long%2Clat.csv"
+            },
+            "key": "State",
+            "fields": ["Longitude", "Latitude"]
+          }
+        }
+      ]
+    }
+  ],
+  
+    "config": {"view": {"stroke": "transparent"  }}
+   
+}
+
+  
