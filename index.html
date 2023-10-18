@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+<script src="vega_lite_vis.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter&family=Fira+Sans&family=Fira+Sans+Condensed&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href = "style.css">
+<title> Moving To America </title>
+</head>
+<body>
+    
+   
+    <div class="pure-g">
+          <div class="pure-u-1">
+             <img src = "https://images.pexels.com/photos/1525857/pexels-photo-1525857.png?auto=compress&cs=tinysrgb&h=750&w=1260"/>
+           </div>
+           <div class="pure-u-1_text">
+                <h1> Moving To The States</h1>
+                <p> It is well known that the USA, by far, has the largerst number of Immigrants. Have you
+                     yourself ever thought about relocating to the states? This report will take you through a 
+                    journey of discovering the best field of employment and location of state based on your own
+                    preferences.
+
+                </p>
+            </div>
+         <div class="pure-u-1-3">
+            <div id='text_div'>
+                <h1>Get A Job</h1>
+               
+                <p> The question that most people have before commiting to migrating
+                    to a different country is "Will l find a job?".
+                   The plot shown aside visualises the top 60 jobs which had the most
+                    advertised job vacancies in 2022.
+                    <br> <br> 
+                    It can be seen that <span class='medical_text'> Nurses </span> had the most advertised job 
+                    vacancies by a large gap, closely followed by <span class='driver_text'> Delivery Drivers </span> and
+                    <span class='sales_text'> Sales Support Assistant </span>.
+                    <br> <br>
+                    In contrast the jobs with the highest (average) advertised salaries
+                    are both <span class='engineer_text'> engineering </span>  related with Nursing jobs coming in the second.
+                    <br> <br>
+                    The question then becomes whats more
+                    important getting a job without too much hustle or
+                    getting paid a lot more than the average american earner?
+                    <br> <br>
+                </p>
+                </div>
+        </div>
+        
+        <div class="pure-u-1-2">
+            <br> <br>
+            <br> <br>
+            <div id="dot_chart"> </div>
+        </div>
+
+        <div class="pure-u-1-3">
+            <div id='text_div'>
+                <br> <br>
+                <br> <br>
+                <h1>Choose Your State</h1>
+
+                <p>  A desirable location in this context may be the one that has a low unemployment 
+                    rate which makies it be easier for one to find a job. 
+                    Others however may prefer making a decision based on the
+                    geographical location.
+                    <br> <br> 
+                    Florida, Carlifornia and Texas have an unemployment rate of 0.01,
+                    making them favourable for the average job hunter.
+                    <br> <br>
+                    The State Alaska, on the flip side, has the highest rate of Unemployment,
+                    followed by the state of Wyoming. 
+                    
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="pure-u-1-2">
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <div id="map"> </div> 
+        </div>
+
+        <div class="pure-u-1-3">
+            <div id='text_div'>
+                <br> <br>
+                 <br> <br>
+                <h1>Hot Or Cold</h1>
+
+                <p> Some people prefer Hot weather whilst others prefer cold. The Map
+                    Aside shows the average seasonal temperature of each state. 
+                    <br> <br> 
+                    If One prefers Hot weather, coast line states like Florida, Louisiana,
+                     and Texas will be the best options.
+                    If One however prefers Cold weather, upper north states like
+                    North Dekota, Minnesota and Wisconsin would be suitable.
+                    <br> <br>
+                    The Landlocked states like Kansas typically have moderate temperatures compared to the outer
+                    states through out the seasons.
+                    
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="pure-u-1-2">
+                <br> <br>
+                <br> <br>
+                <br> <br>
+                <br> <br>
+                
+                <div id="map2"> </div> 
+        </div>
+
+
+        <div class="pure-u-1-3">
+            <br> <br>
+            <br> <br>
+            <div id='text_div'>
+                <br> <br>
+                <br> <br>
+                <br> <br>
+                <h1>Cost Of Living</h1>
+
+                <p>  In most cases, it all comes down to the cost of living. How much
+                     does it actually cost to live in a state. The USA is counted to be
+                     one of the most expensive places to reside in on a global scale.
+                    <br> <br> 
+                    States like Hawaii, Carlifornia, New York, Massachusetts, Alaska, Vermont
+                     New Hampshire and The District Of Colombia are observed to be expensive in all 
+                    five expense categories
+                    <br> <br>
+                    On the other side, states like Missouri, Oklahoma, Arkansas, Louisiana and Mississippi
+                    are observed to be fair valued in all five expense categories.
+                    
+                    <br> <br>
+                     As one would expect, the cost housing is observed to be have the highest expense rate.
+                     The visual goes on to show that health and grocery expenses have the second highest expense
+                     rate, which is expected for the later but not so much for the former
+                     <br> <br>
+                    
+                <h1> Ready To Move ?</h1>
+                    <P>
+                    From the above report, one is able to make an informed decision before making
+                    "the move", From the field of speciality to the state that has the most favourable
+                    conditions. Missouri has my vote, what's yours ?
+                    </P>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="matrix_div_2">
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            
+            <div id="matrix1"> </div> 
+        </div>
+
+
+        <div class="matrix_div">
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+            <div id="matrix2"> </div> 
+        </div>
+
+    </div>
+</body>
