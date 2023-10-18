@@ -3,6 +3,12 @@ body {
     background-color: honeydew;
 }
 
+h2{ font-family: 'Bitter', serif;}
+p{font-family : 'Fira Sans Condensed', sans-serif;
+    font-size: 15px;
+    color : rgb(15, 15, 26);
+}
+
 h1{ font-family: 'Bitter', serif;}
 p{font-family : 'Fira Sans Condensed', sans-serif;
     font-size: 15px;
